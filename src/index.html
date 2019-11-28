@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <base href="/">
+  <title>Asistente Virtual</title>
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="https://unpkg.com/simple-update-in/dist/simple-update-in.production.min.js"></script>
+</head>
+
+<body>
+  <div id="webchat" role="main"></div>
+  <script>
+    (async function () {
+      let urlParams = (window.location.search.slice(1, window.location.search.length)).split('&');
+      if (urlParams.length === 3) {
+        userParams = { idType: urlParams[0].split('=')[1], idNumber: urlParams[1].split('=')[1], name: urlParams[2].split('=')[1] };
+      }
+      else { userParams = null; }
+      const store = window.WebChat.createStore(
+        {},
+        ({ dispatch }) => next => action => {
+          if (action.type === 'DIRECT_LINE/POST_ACTIVITY') {
+            action = window.simpleUpdateIn(action, ['payload', 'activity', 'channelData', 'userParams'], () => userParams);
+          }
+          return next(action);
+        }
+      );
+
+      window.WebChat.renderWebChat({
+        directLine: window.WebChat.createDirectLine({ token: "GXQrLx37CzY.Hauqda7akpIo8h6blyUh9F_VczCXr0mS2Zr9Cb30QoU" }),
+        store
+      }, document.getElementById('webchat'));
+
+      store.dispatch({
+        type: 'WEB_CHAT/SET_SEND_BOX',
+        payload: { text: '' }
+      });
+
+      document.querySelector('#webchat > *').focus();
+    })().catch(err => console.error(err));
+  </script>
+  <app-root></app-root>
+</body>
+
+</html>
