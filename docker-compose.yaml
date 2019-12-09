@@ -1,0 +1,11 @@
+version: '3.5'
+services: 
+    assistant-front: 
+      container_name: assistantFront
+      build: .
+      volumes: 
+        - '.:/usr/src/app' 
+      ports: 
+        - '3000:3000'
+      command: 
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 3000"

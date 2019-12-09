@@ -1,26 +1,14 @@
-.bg-compensar {
-    width: 100%;
-    height: auto;
-}
-
-.filler {
-    display: none;
-}
-
-.bubble {
-    max-width: 90% !important;
-}
-
 *, ::after, ::before {
-    box-sizing: initial;
+    box-sizing: initial
 }
 
 body {
-    overflow: none;
+    overflow: none
 }
 
-.css-1i5j9y2>.content>.webchat__row>.bubble {
-    max-width: 100% !important;
+.bg-compensar {
+    width: 100%;
+    height: auto
 }
 
 .content-chatbot {
@@ -31,120 +19,134 @@ body {
     width: 100%;
     line-height: 1.2;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif
 }
 
-.button-collapse-chabot a, .btn-primary:not(:disabled):not(.disabled):active {
+.btn-primary:not(:disabled):not(.disabled):active, .button-collapse-chabot a {
     width: inherit;
     display: block;
     text-align: left;
     background: #f60;
     border-color: #ff9752;
-    border-radius: 0;
+    border-radius: 8px 8px 0 0;
     -webkit-border-top-left-radius: 8px;
     -webkit-border-top-right-radius: 8px;
     -moz-border-radius-topleft: 8px;
-    -moz-border-radius-topright: 8px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    -moz-border-radius-topright: 8px
 }
 
 .button-collapse-chabot a:hover {
     background: #f0f0f0;
-    border-color: #c5c5c5;
+    border-color: #c5c5c5
 }
 
-.btn-primary:focus, .btn-primary:active {
-    box-shadow: none;
+.btn-primary:active, .btn-primary:focus {
+    box-shadow: none
 }
 
 .button-collapse-chabot img {
     max-width: 85px;
-    height: auto;
+    height: auto
 }
 
 .row {
-    margin: 0px;
+    margin: 0
 }
 
 .main {
-    box-sizing: inherit;
+    box-sizing: inherit
 }
 
-div[role="log"]>div {
+div[role=log]>div {
     height: 90vh;
     overflow: auto;
     overflow-x: none;
-    background: #ffffff;
+    background: #fff
 }
 
 .message {
-    padding-bottom: 20px;
+    padding-bottom: 20px
 }
 
-.message>div>div {
+.message>div {
     display: inline-block;
     position: relative;
     height: auto;
-    background-color: #f0f0f0 !important;
-    width: 100% !important;
-    max-width: 90% !important;
-    border: none !important;
+    background-color: #f0f0f0!important;
+    width: 100%!important;
+    max-width: 90%!important;
+    border: none!important
 }
 
-.message>.from-user>div {
+.message>div:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: -10px;
+    border: 12px solid;
+    border-color: transparent transparent transparent #f0f0f0
+}
+
+.from-user .message>div {
     display: inline-block;
     position: relative;
     height: auto;
-    background-color: #fde2d0 !important;
+    background-color: #fde2d0!important;
     width: 150px;
-    border: none !important;
+    border: none!important
 }
 
-.message>.bubble>div>div>p {
-    margin-top: 0px;
-    margin-bottom: 0px;
+.from-user .message>div:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: 0;
+    bottom: -10px;
+    border: 12px solid;
+    border-color: #fde2d0 #fde2d0 transparent transparent
 }
 
 .attachment.bubble {
     background: #f0f0f0;
-    min-width: 235px !important;
+    min-width: 235px!important
 }
 
 .ac-pushButton {
-    background: #f60 !important;
-    color: #ffffff !important;
-    cursor: pointer;
+    background: #f60!important;
+    color: #fff!important;
+    cursor: pointer
 }
 
 .ac-pushButton:hover {
-    background: #c24e00 !important;
+    background: #c24e00!important
 }
 
 .ac-textBlock p {
     white-space: initial;
-    text-align: left;
+    text-align: left
 }
 
 label.ac-textBlock {
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
 input.ac-input {
-    border: 1px solid #c5c5c5 !important;
+    border: 1px solid #c5c5c5!important
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width:480px) {
     .content-chatbot {
         position: fixed;
         max-width: none;
-        right: 0;
+        right: 0
     }
-    .message>div, .from-user .message>div {
-        width: 100%;
+    .from-user .message>div, .message>div {
+        width: 100%
     }
-}
-
-.from-user .webchat__bubble__content {
-    background-color: #f0d6b5;
 }
